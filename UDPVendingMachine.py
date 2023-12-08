@@ -20,7 +20,6 @@ while True:
     print({'password': received_password}) 
 
     response = requests.get(api_url_user + '/' + received_password + '?password=' + received_password)
-    print(response.json())
 
     if response.status_code == 200:
         serverSocket.sendto("OK".encode(), clientAddress)
@@ -35,6 +34,6 @@ while True:
            print(responsePost.text)  # Udskriv fejltekst fra serveren
            serverSocket.sendto("FEJL VED POST".encode(), clientAddress)    
     elif response.status_code == 500:
-          print("FEJL")
           serverSocket.sendto("FEJL".encode(), clientAddress)
+          serverSocket.sendto("PRØV IGEN".encode(), clientAddress)          
 
