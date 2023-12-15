@@ -4,7 +4,7 @@ import requests
 serverPort = 12000
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 
-serverAddress = ('192.168.204.54', serverPort)
+serverAddress = ('192.168.171.54', serverPort)
 
 serverSocket.bind(serverAddress)
 print("The server is ready")
