@@ -4,7 +4,7 @@ import requests
 serverPort = 12000
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 
-serverAddress = ('192.168.171.54', serverPort)
+serverAddress = ('192.168.36.100', serverPort)
 
 serverSocket.bind(serverAddress)
 print("The server is ready")
@@ -19,7 +19,7 @@ while True:
     received_password = message.decode()
     print({'password': received_password}) 
 
-    response = requests.get(api_url_user + '/' + received_password + '?password=' + received_password)
+    response = requests.get(api_url_user + '/password?password=' + received_password)
 
     if response.status_code == 200:
         serverSocket.sendto("OK".encode(), clientAddress)
